@@ -1027,6 +1027,7 @@ static struct {
 	char result;
 	const char *check;
 } signature_check[] = {
+	{ 'U', ": WARNING: This key is not certified with a trusted signature!" },
 	{ 'G', ": Good signature from " },
 	{ 'B', ": BAD signature from " },
 };

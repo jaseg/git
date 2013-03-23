@@ -3,7 +3,7 @@
 
 struct signature {
 	char *gpg_output;
-	char check_result; /* 0 (not checked), N (checked but no further result), G (good) or B (bad) */
+	char check_result; /* 0 (not checked), N (checked but no further result), U (untrusted, good), G (good) or B (bad) */
 	char *signer;
 };
 
