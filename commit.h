@@ -5,6 +5,7 @@
 #include "tree.h"
 #include "strbuf.h"
 #include "decorate.h"
+#include "gpg-interface.h"
 
 struct commit_list {
 	struct commit *item;
@@ -229,5 +230,13 @@ extern int parse_signed_commit(const unsigned char *sha1,
 extern void print_commit_list(struct commit_list *list,
 			      const char *format_cur,
 			      const char *format_last);
+
+/*
+ * Check the signature of the given commit. The result of the check is stored in
+ * sig->check_result, 'G' for a good signature, 'B' for a bad signature and 'N'
+ * for no signature at all.
+ * This may allocate memory for sig->gpg_output and sig->signer.
+ */
+extern void check_commit_signature(const struct commit* commit, struct signature *sig);
 
 #endif /* COMMIT_H */
